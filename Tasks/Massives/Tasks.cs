@@ -269,7 +269,19 @@ namespace Massives
         {
             int k = 1;
 
-            string text = "Гистограмма вышеуказанного массива: ";
+            string text = "Гистограмма вышеуказанного массива: \n";
+
+            int min = int.MaxValue;
+
+            foreach (var a in array)
+            {
+                if (a < min)
+                {
+                    min = a;
+                }
+            }
+
+            min = Math.Abs(min);
 
             foreach (var e in array)
             {
@@ -279,10 +291,25 @@ namespace Massives
                 }
                 else
                 {
-                    text += k++ + ":  ";
+                    text += k++ + ": ";
                 }
 
-                for (int i = 0; i < e; i++)
+                if (e >= 0)
+                {
+                    for (int i = 0; i < min; i++)
+                    {
+                        text += "-";
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < min-Math.Abs(e); i++)
+                    {
+                        text += "-";
+                    }
+                }
+
+                for (int i = 0; i < Math.Abs(e); i++)
                 {
                     text+= "*";
                 }
