@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpressions", "RegularExpressions\RegularExpressions.csproj", "{575264D2-CE6C-4652-862C-F2ED9847BB4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Massives", "Massives\Massives.csproj", "{8BBF12C3-DB43-4EC3-83F0-19A4776B02B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{575264D2-CE6C-4652-862C-F2ED9847BB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{575264D2-CE6C-4652-862C-F2ED9847BB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{575264D2-CE6C-4652-862C-F2ED9847BB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBF12C3-DB43-4EC3-83F0-19A4776B02B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBF12C3-DB43-4EC3-83F0-19A4776B02B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBF12C3-DB43-4EC3-83F0-19A4776B02B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBF12C3-DB43-4EC3-83F0-19A4776B02B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

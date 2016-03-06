@@ -16,5 +16,21 @@ namespace Massives
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Input.Generate();
+            textBox1.Text = Output.Out();
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int n = comboBox1.SelectedIndex+1;
+
+            Tasks tasks = new Tasks();
+            string text = tasks.ExecuteTask(n, Data.array);
+            textBox2.Text = text;
+        }
     }
 }
