@@ -196,6 +196,7 @@ namespace RegularExpressions
         private void RestoreAll(object sender, EventArgs e)
         {
             Expressions.RestoreExpressions();
+            MessageBox.Show(@"Все выражения восстановлены.");
         }
 
         void Change(int number)
