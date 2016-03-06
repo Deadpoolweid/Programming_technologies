@@ -18,13 +18,31 @@ namespace RegularExpressions
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
+            Expressions.SaveExpressions();
         }
 
         private void Check(object sender, EventArgs e)
         {
-            string regex1 = "^\\D$";
+            string regex1 = Expressions.regex1;
+            string regex2 = Expressions.regex2;
+            string regex3 = Expressions.regex3;
+            string regex4 = Expressions.regex4;
+            string regex5 = Expressions.regex5;
+            string regex6 = Expressions.regex6;
+            string regex7 = Expressions.regex7;
+            string regex8 = Expressions.regex8;
+            string regex9 = Expressions.regex9;
+            string regex10 = Expressions.regex10;
+            string regex11 = Expressions.regex11;
+            string regex12 = Expressions.regex12;
+            string regex13 = Expressions.regex13;
+            string regex14 = Expressions.regex14;
+            string regex15 = Expressions.regex15;
+            string regex16 = Expressions.regex16;
+
+
             if (Regex.IsMatch(textBox1.Text, regex1))
             {
                 textBox1.ForeColor = Color.Red;
@@ -34,7 +52,6 @@ namespace RegularExpressions
                 textBox1.ForeColor = Color.Green;
             }
 
-            string regex2 = "^([-+]?(?:\\d+|\\d*(?:\\.\\d+)?(?:[Ee][+-]?\\d+)?))?([-+])?(\\d+|\\d*(?:\\.\\d+)?(?:[Ee][+-]?\\d+)?)?[ij]$";
             if (Regex.IsMatch(textBox2.Text, regex2))
             {
                 textBox2.ForeColor = Color.Green;
@@ -44,7 +61,6 @@ namespace RegularExpressions
                 textBox2.ForeColor = Color.Red;
             }
 
-            string regex3 = "^[0-9]+[\\,\\.][0-9][0-9]$";
             if (Regex.IsMatch(textBox3.Text, regex3))
             {
                 textBox3.ForeColor = Color.Green;
@@ -54,7 +70,6 @@ namespace RegularExpressions
                 textBox3.ForeColor = Color.Red;
             }
 
-            string regex4 = "^[-]?\\d+$";
             if (Regex.IsMatch(textBox4.Text, regex4))
             {
                 textBox4.ForeColor = Color.Green;
@@ -64,7 +79,6 @@ namespace RegularExpressions
                 textBox4.ForeColor = Color.Red;
             }
 
-            string regex5 = "^[\\d]{6}$";
             if (Regex.IsMatch(textBox5.Text, regex5))
             {
                 textBox5.ForeColor = Color.Green;
@@ -74,7 +88,6 @@ namespace RegularExpressions
                 textBox5.ForeColor = Color.Red;
             }
 
-            string regex6 = "^[A-Z][a-z]* obl., g. [A-Z][a-z]+, ul. [A-Z][a-z]+, d. [0-9]+$";
             if (Regex.IsMatch(textBox6.Text, regex6))
             {
                 textBox6.ForeColor = Color.Green;
@@ -84,7 +97,6 @@ namespace RegularExpressions
                 textBox6.ForeColor = Color.Red;
             }
 
-            string regex7 = "^<(([^>]|\\n)*)>$";
             if (Regex.IsMatch(textBox7.Text, regex7))
             {
                 textBox7.ForeColor = Color.Green;
@@ -94,8 +106,6 @@ namespace RegularExpressions
                 textBox7.ForeColor = Color.Red;
             }
 
-            string regex8 = "(https?:\\/\\/)?(www\\.)?[-а-яa-z0-9_\\.]{2,}\\.(рф|[a-z]{2,6})((\\/[-а-яa-z0-9_]\\/|[-а-яa-z0-9_]{2,}" + 
-                "\\.(рф|[a-z]{2,6}))|(\\/[-а-яa-z0-9_]\\/[-а-яa-z0-9_]{2,}\\.(рф|[a-z]{2,6})))(\\?[a-z0-9_]{2,}=[-0-9]{1,})?(\\&[a-z0-9_]{2,}=[-0-9]{1,})?";
             if (Regex.IsMatch(textBox8.Text, regex8))
             {
                 textBox8.ForeColor = Color.Green;
@@ -105,7 +115,6 @@ namespace RegularExpressions
                 textBox8.ForeColor = Color.Red;
             }
 
-            string regex9 = "([A-Z][a-z]+ ){2}([A-Z][a-z]+)";
             if (Regex.IsMatch(textBox9.Text, regex9))
             {
                 textBox9.ForeColor = Color.Green;
@@ -115,7 +124,6 @@ namespace RegularExpressions
                 textBox9.ForeColor = Color.Red;
             }
 
-            string regex10 = "^[+]?[78][ ]?[(]?\\d{3}[)]?[ ]?\\d{2}[ ]*[-]?[ ]*[\\d]{2}[ ]*[-]?[ ]*[\\d]{3}$";
             if (Regex.IsMatch(textBox10.Text, regex10))
             {
                 textBox10.ForeColor = Color.Green;
@@ -125,7 +133,6 @@ namespace RegularExpressions
                 textBox10.ForeColor = Color.Red;
             }
 
-            string regex11 = "^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$";
             if (Regex.IsMatch(textBox11.Text, regex11))
             {
                 textBox11.ForeColor = Color.Green;
@@ -135,7 +142,6 @@ namespace RegularExpressions
                 textBox11.ForeColor = Color.Red;
             }
 
-            string regex12 = "^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.ru$";
             if (Regex.IsMatch(textBox12.Text, regex12))
             {
                 textBox12.ForeColor = Color.Green;
@@ -145,7 +151,6 @@ namespace RegularExpressions
                 textBox12.ForeColor = Color.Red;
             }
 
-            string regex13 = "^[\\d]{1,2}[./][\\d]{1,2}[./][\\d]{1,4}$";
             if (Regex.IsMatch(textBox13.Text, regex13))
             {
                 textBox13.ForeColor = Color.Green;
@@ -155,7 +160,7 @@ namespace RegularExpressions
                 textBox13.ForeColor = Color.Red;
             }
 
-            string regex14 = "жы|шы|чя|щя|чю|щю/ig";
+
             if (Regex.IsMatch(textBox14.Text, regex14))
             {
                 textBox14.ForeColor = Color.Red;
@@ -165,7 +170,6 @@ namespace RegularExpressions
                 textBox14.ForeColor = Color.Green;
             }
 
-            string regex15 = "^[\\d\\s]+$";
             if (Regex.IsMatch(textBox15.Text, regex15))
             {
                 textBox15.ForeColor = Color.Green;
@@ -175,7 +179,7 @@ namespace RegularExpressions
                 textBox15.ForeColor = Color.Red;
             }
 
-            string regex16 = "\\s(\\w+\\s)\\1";
+
             if (Regex.IsMatch(textBox16.Text, regex16))
             {
                 textBox16.ForeColor = Color.Red;
@@ -187,6 +191,114 @@ namespace RegularExpressions
                 textBox16.ForeColor = Color.Green;
 
             }
+        }
+
+        private void RestoreAll(object sender, EventArgs e)
+        {
+            Expressions.RestoreExpressions();
+        }
+
+        void Change(int number)
+        {
+            Form2 f = new Form2(number);
+            this.Enabled = false;
+            f.ShowDialog();
+            this.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Change(1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Change(3);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Change(2);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Change(4);
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Change(5);
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Change(6);
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Change(7);
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Change(8);
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Change(9);
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Change(10);
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Change(11);
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Change(12);
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Change(13);
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Change(14);
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Change(15);
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Change(16);
+
         }
     }
 }
