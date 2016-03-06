@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Massives
+﻿namespace Massives
 {
-    class Data
+    internal static class Data
     {
         /// <summary>
         /// Используемый массив
         /// </summary>
-        public static int[] array = new int[10];
+        public static readonly int[] Array = new int[10];
 
         /// <summary>
         /// Левая граница чисел для массива
         /// </summary>
-        public static int from;
+        public static int From;
 
         /// <summary>
         /// Правая граница чисел для массива
         /// </summary>
-        public static int to;
+        public static int To;
     }
 }

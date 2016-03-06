@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -41,7 +34,7 @@ namespace Massives
                 return;
             }
             Tasks tasks = new Tasks();
-            string text = tasks.ExecuteTask(n, Data.array);
+            string text = tasks.ExecuteTask(n, Data.Array);
             //string[] lines = text.Split('\n');
             richTextBox1.Text = text;
         }
@@ -49,47 +42,52 @@ namespace Massives
         private void CreateChart()
         {
             // Создаём новую область для построения графика
-            ChartArea area = new ChartArea();
-            // Даём ей имя (чтобы потом добавлять графики)
-            area.Name = "myGraph";
+            ChartArea area = new ChartArea
+            {
+                // Даём ей имя (чтобы потом добавлять графики)
+                Name = "myGraph",
+                AxisX =
+                {
+                    // Задаём левую и правую границы оси X
+                    Minimum = 0,
+                    Maximum = 10,
+                    // Определяем шаг сетки
+                    MajorGrid = {Interval = 1}
+                }
+            };
 
-            // Задаём левую и правую границы оси X
-            area.AxisX.Minimum = 0;
-            area.AxisX.Maximum = 10;
 
-            // Определяем шаг сетки
-            area.AxisX.MajorGrid.Interval = 1;
+
+
+            
 
             // Добавляем область в диаграмму
             chart1.ChartAreas.Add(area);
             // Создаём объект для первого графика
-            Series series1 = new Series();
-            // Ссылаемся на область для построения графика
-            series1.ChartArea = "myGraph";
-            // Задаём тип графика - сплайны
-            series1.ChartType = SeriesChartType.Column;
-            // Указываем ширину линии графика
-            series1.BorderWidth = 3;
-            // Название графика для отображения в легенде
-            series1.LegendText = "гистограмма";
-            // Добавляем в список графиков диаграммы
+            Series series1 = new Series
+            {
+                ChartArea = "myGraph",
+                ChartType = SeriesChartType.Column,
+                BorderWidth = 3,
+                LegendText = "гистограмма"
+            };
             chart1.Series.Add(series1);
         }
 
         private void BindChart()
         {
 
-            chart1.DataSource = Data.array;
+            chart1.DataSource = Data.Array;
             chart1.DataBind();
-            int[] Xpoints = new int[10];
-            int[] Ypoints = new int[10];
+            int[] xpoints = new int[10];
+            int[] ypoints = new int[10];
 
-            for (int i = 0; i < Data.array.Length; i++)
+            for (int i = 0; i < Data.Array.Length; i++)
             {
-                Xpoints[i] = i + 1;
-                Ypoints[i] = Data.array[i];
+                xpoints[i] = i + 1;
+                ypoints[i] = Data.Array[i];
             }
-            chart1.Series[0].Points.DataBindXY(Xpoints,Ypoints);
+            chart1.Series[0].Points.DataBindXY(xpoints,ypoints);
         }
 
         private void сгенерироватьНовыйМассивToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,7 +104,7 @@ namespace Massives
 
         private void настрокиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            Enabled = false;
             Settings settings = new Settings();
             settings.ShowDialog();
             Enabled = true;
@@ -114,14 +112,14 @@ namespace Massives
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
-            MessageBox.Show("Массивы. Автор: Alex_Green ©.");
-            this.Enabled = true;
+            Enabled = false;
+            MessageBox.Show(@"Массивы. Автор: Alex_Green ©.");
+            Enabled = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

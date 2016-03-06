@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RegularExpressions
@@ -20,15 +13,15 @@ namespace RegularExpressions
 
         public Form2(int number)
         {
-            this.number = number;
+            _number = number;
             InitializeComponent();
         }
 
-        private int number;
+        private readonly int _number;
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            textBox2.Text = Expressions.GetExpression(number);
+            textBox2.Text = Expressions.GetExpression(_number);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,13 +29,13 @@ namespace RegularExpressions
             string txt = @textBox1.Text;
 
             txt = @Regex.Replace(txt,@"\\","\\");
-            Expressions.Change(number,txt);
-            this.Close();
+            Expressions.Change(_number,txt);
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

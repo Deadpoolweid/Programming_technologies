@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Massives
+﻿namespace Massives
 {
-    class Output
+    internal class Output
     {
         public static string Out()
         {
             string text = "";
-            for (int i = 0; i < Data.array.Length; i++)
+            for (int i = 0; i < Data.Array.Length; i++)
             {
-                text += $"Элемент {i + 1} = {Data.array[i]}" + "\n";
+                text += $"Элемент {i + 1} = {Data.Array[i]}" + "\n";
             }
             return text;
         } 

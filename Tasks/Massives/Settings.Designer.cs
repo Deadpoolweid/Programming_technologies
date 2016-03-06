@@ -1,11 +1,14 @@
-﻿namespace Massives
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Massives
 {
     partial class Settings
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -124,12 +127,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private Label label1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label2;
+        private Label label3;
+        private Button button1;
+        private Button button2;
     }
 }

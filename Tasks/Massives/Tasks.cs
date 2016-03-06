@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Massives
 {
-    class Tasks
+    internal class Tasks
     {
-        public string Task1(int[] array)
+        private string Task1(int[] array)
         {
             int k = 0;
-            for (int i = 1; i < array.Count() - 1; i++)
+            for (int i = 1; i < array.Length - 1; i++)
             {
                 if (array[i] > array[i - 1] && array[i] > array[i + 1])
                 {
@@ -22,7 +19,7 @@ namespace Massives
             return "Количество элементов, больших, чем их соседи: " + k;
         }
 
-        public string Task2(int[] array)
+        private string Task2(int[] array)
         {
             int k = 0;
             bool exist = false;
@@ -40,48 +37,30 @@ namespace Massives
             {
                 return "Номер элемента, большего 25: " + k;
             }
-            else
-            {
-                return "Такого элемента нет в массиве.";
-            }
+            return "Такого элемента нет в массиве.";
         }
 
-        public string Task3(int[] array)
+        private string Task3(int[] array)
         {
-            int s = 0;
-
-            foreach (var VARIABLE in array)
-            {
-                if (VARIABLE > array[1])
-                {
-                    s += VARIABLE;
-                }
-            }
+            int s = array.Where(variable => variable > array[1]).Sum();
 
             return "Сумма элементов больших, чем второй элемент массива: " + s;
         }
 
-        public string Task4(int[] array)
+        private string Task4(int[] array)
         {
-            float averageValue = 0;
+            float averageValue = array.Aggregate<int, float>(0, (current, variable) => current + variable);
 
-            foreach (var VARIABLE in array)
-            {
-                averageValue += VARIABLE;
-            }
-            averageValue /= array.Count();
+            averageValue /= array.Length;
 
             if (array[0] > averageValue)
             {
                 return "Первый элемент массива превосходит среднее значение всех элементов.";
             }
-            else
-            {
-                return "Первый элемент массива не превосходит среднее значение всех элементов.";
-            }
+            return "Первый элемент массива не превосходит среднее значение всех элементов.";
         }
 
-        public string Task5(int[] array)
+        private string Task5(int[] array)
         {
             bool positive = IsPositive(array[0]);
             int k = 0;
@@ -95,7 +74,7 @@ namespace Massives
             }
 
             string[] words = new string[10];
-            for (int i = 0; i < words.Count(); i++)
+            for (int i = 0; i < words.Length; i++)
             {
                 if (i > 1 && i < 5)
                 {
@@ -105,45 +84,31 @@ namespace Massives
                 words[i] = "раз";
             }
 
-            return String.Format("Элементы в последовательноси меняют знак {0} {1}", k, words[k]);
+            return $"Элементы в последовательноси меняют знак {k} {words[k]}";
         }
 
-        static bool IsPositive(int x)
+        private static bool IsPositive(int x)
         {
-            return (x > 0) ? true : false;
+            return (x > 0);
         }
 
-        public string Task6(int[] array)
+        private string Task6(int[] array)
         {
-            int k = 0;
-            foreach (var VARIABLE in array)
-            {
-                if (VARIABLE > array[3])
-                {
-                    k++;
-                }
-            }
+            int k = array.Count(variable => variable > array[3]);
 
             return "Количество элементов, больших, чем четвёртый: " + k;
         }
 
-        public string Task7(int[] array)
+        private string Task7(int[] array)
         {
-            int s = 0;
-            foreach (int e in array)
-            {
-                if (e > 21)
-                {
-                    s += e;
-                }
-            }
+            int s = array.Where(e => e > 21).Sum();
 
             return "Сумма элементов, больших 21: " + s;
         }
 
-        public string Task8(int[] array)
+        private string Task8(int[] array)
         {
-            for (int i = 0; i < array.Count(); i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 5 == 0)
                 {
@@ -151,60 +116,31 @@ namespace Massives
                 }
             }
 
-            string _out = "Элементы, кратные пяти увеличены на единицу:" + "\n";
-            foreach (var e in array)
-            {
-                _out += e + "  ";
-            }
-
-            return _out;
+            return array.Aggregate("Элементы, кратные пяти увеличены на единицу:" + "\n", (current, e) => current + (e + "  "));
         }
 
-        public string Task9(int[] array)
+        private string Task9(int[] array)
         {
-            int s = 0;
-
-            foreach (var e in array)
-            {
-                if (e % 3 != 0)
-                {
-                    s += e;
-                }
-            }
+            int s = array.Where(e => e%3 != 0).Sum();
 
             return "Сумма элементов, не кратных трём: " + s;
         }
 
-        public string Task10(int[] array)
+        private string Task10(int[] array)
         {
-            int k = 0;
-
-            foreach (var e in array)
-            {
-                if (e < array[0] && e > array[array.Count() - 1])
-                {
-                    k++;
-                }
-            }
+            int k = array.Count(e => e < array[0] && e > array[array.Length - 1]);
 
             return "Количество элементов, меньших первого и больших последнего: " + k;
         }
 
-        public string Task11(int[] array)
+        private string Task11(int[] array)
         {
-            int k = 0;
-            foreach (var e in array)
-            {
-                if (e >= 0)
-                {
-                    k++;
-                }
-            }
+            int k = array.Count(e => e >= 0);
 
             return "Количество неотрицательных элементов массива: " + k;
         }
 
-        public string Task12(int[] array)
+        private string Task12(int[] array)
         {
             int e = array[0];
             int x = array[1];
@@ -221,65 +157,35 @@ namespace Massives
             return "Элемент, меньше всего отличающийся от второго - " + "Элемент " + n + ": " + e;
         }
 
-        public string Task13(int[] array)
+        private string Task13(int[] array)
         {
-            int k = 0;
-            foreach (var e in array)
-            {
-                if (e != 0)
-                {
-                    k++;
-                }
-            }
+            int k = array.Count(e => e != 0);
 
             return "Количество ненулевых элементов: " + k;
 
         }
 
-        public string Task14(int[] array)
+        private string Task14(int[] array)
         {
-            int k = 0;
-            foreach (var a in array)
-            {
-                if (a%3 == 0)
-                {
-                    k++;
-                }
-            }
+            int k = array.Count(a => a%3 == 0);
 
             return "Количество элементов, кратных 3: " + k;
         }
 
-        public string Task15(int[] array)
+        private string Task15(int[] array)
         {
-            int s = 0;
-
-            foreach (var e in array)
-            {
-                if (e < array[4])
-                {
-                    s += e;
-                }
-            }
+            int s = array.Where(e => e < array[4]).Sum();
 
             return "Сумма элементов, меньших пятого элемента: " + s;
         }
 
-        public string Task16(int[] array)
+        private string Task16(int[] array)
         {
             int k = 1;
 
             string text = "Гистограмма вышеуказанного массива: \n";
 
-            int min = int.MaxValue;
-
-            foreach (var a in array)
-            {
-                if (a < min)
-                {
-                    min = a;
-                }
-            }
+            int min = array.Concat(new[] {int.MaxValue}).Min();
 
             min = Math.Abs(min);
 
