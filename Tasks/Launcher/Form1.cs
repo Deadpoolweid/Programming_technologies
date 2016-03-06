@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RE = RegularExpressions;
+using M = Massives;
 
 namespace Launcher
 {
@@ -25,10 +26,32 @@ namespace Launcher
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RE.Form1 form1 = new RE.Form1();
-            this.Visible = false;
-            form1.ShowDialog();
-            Visible = true;
+            try
+            {
+                RE.Form1 form1 = new RE.Form1();
+                this.Visible = false;
+                form1.ShowDialog();
+                Visible = true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                M.Form1 form1 = new M.Form1();
+                Visible = false;
+                form1.ShowDialog();
+                Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -95,7 +95,13 @@ namespace Massives
         private void сгенерироватьНовыйМассивToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Input.Generate();
-            textBox1.Text = Output.Out();
+            string text = Output.Out();
+            string[] text1 = text.Split('\n');
+            textBox1.Text = "";
+            foreach (var t in text1)
+            {
+                textBox1.Text += t + Environment.NewLine;
+            }
         }
 
         private void настрокиToolStripMenuItem_Click(object sender, EventArgs e)

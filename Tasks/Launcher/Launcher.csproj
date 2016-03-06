@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Massives\Massives.csproj">
+      <Project>{8bbf12c3-db43-4ec3-83f0-19a4776b02b0}</Project>
+      <Name>Massives</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RegularExpressions\RegularExpressions.csproj">
       <Project>{575264d2-ce6c-4652-862c-f2ed9847bb4c}</Project>
       <Name>RegularExpressions</Name>
